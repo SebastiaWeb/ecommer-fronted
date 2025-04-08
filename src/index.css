@@ -1,3 +1,26 @@
 html {
   scroll-behavior: smooth;
 }
+
+.logo {
+  background-color: #F7F7F8;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.support {
+  border: 2px solid #F7F7F8;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.container-products{
+  background-color: #F7F7F8;
+}
+
+.container-footer{
+  background-color: #1C1C1C;
+  color: #F1F1F3;
+  height: 75px;
+  padding: 10px;
+}

@@ -1,0 +1,39 @@
+.card-product{
+}
+
+.name-product{
+    color: black;
+}
+
+.price-product{
+    color: #4C4C4D;
+}
+
+.container-img{
+    background-image: url('../../assets/Shape.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 210px;
+    width: 200px;
+    position: relative;
+
+
+}
+
+.img-product{
+    border-radius: 15px;
+    width: 70%;
+    position: relative;
+}
+
+.img-shop{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 18%;
+}
+
+p{
+    margin: 0px;
+    padding: 0px;
+}
