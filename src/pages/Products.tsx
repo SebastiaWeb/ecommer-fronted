@@ -1,8 +1,13 @@
+import Body from "../common/Body";
+import Footer from "../common/Footer";
+import Navbar from "../common/Navbar";
+
 function Products() {
     return (
-      <div>
-        <h1>Welcome to our E-commerce Store</h1>
-        <p>Shop the latest products at unbeatable prices!</p>
+      <div className="d-flex flex-column min-vh-100">
+        <Navbar />
+        <Body></Body>
+        <Footer />
       </div>
     );
   }
