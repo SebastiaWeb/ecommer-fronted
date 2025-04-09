@@ -21,6 +21,11 @@ html {
 .container-footer{
   background-color: #1C1C1C;
   color: #F1F1F3;
-  height: 75px;
+  min-height: 75px;
   padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
