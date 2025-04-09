@@ -43,3 +43,44 @@ html {
   /* margin: 20px; */
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 }
+
+.container-white{
+  border-radius: 39.97px;
+}
+
+.line-divisor{
+  color: black;
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+  font-size: 30px;
+  height: 2px;
+  width: 100%;
+  border-width: 1px 2px 3px 4px; /* arriba, derecha, abajo, izquierda */
+  stroke-width: 5px; /* Para elementos SVG */
+  box-shadow: 0 0 10px 5px rgba(0,0,0,0.2); /* El cuarto valor (5px) es el spread */
+}
+
+.label-transaction{
+  font-size: 14.65px;
+  color: #707070;
+}
+
+.value-transaction{
+  font-size: 14.65px;
+  color: #1C1C1C;
+  font-weight: bold;
+}
+
+.line-divisor-dotted{
+  color: #707070;
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+  font-size: 30px;
+  border-color: #707070;
+  /* height: 1px; */
+  width: 100%;
+  border-width: 1px; /* arriba, derecha, abajo, izquierda */
+  border-style: dashed;
+}
