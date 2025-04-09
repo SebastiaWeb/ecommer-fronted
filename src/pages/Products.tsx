@@ -8,27 +8,27 @@ function Products() {
     <div className="d-flex flex-column min-vh-100">
       <Navbar />
       <Body>
-        <div className="container row">
-          <div className="gallery col-md-12 col-lg-6">
+        <div className="container row m-0 mb-5 pb-5 mb-lg-0 pb-lg-0">
+          <div className="d-flex col-12 col-md-12 col-lg-6 justify-content-center align-items-center">
             <img
               src="https://placehold.co/500x400"
               alt="gallery"
               className="img-fluid"
             />
           </div>
-          <div className="info-products col-md-12 col-lg-6">
-            <div className="d-flex justify-content-between">
-              <div className="info-products-title">
+          <div className="row col-md-12 col-lg-6">
+            <div className="row justify-content-between">
+              <div className="info-products-title mt-3 mt-lg-0  col-12 col-md-8">
                 <h3>Products</h3>
               </div>
-              <div>
+              <div className="my-3 my-lg-0 col-12 col-md-4 d-flex justify-content-md-end align-items-center">
                 <Button />
               </div>
             </div>
-            <div className="info-products-price">
+            <div className="info-products-price col-12 col-md-3">
               <h5>$ 999.99</h5>
             </div>
-            <div className="p-3 info-products-description">
+            <div className="p-3 mb-3 info-products-description">
               <span className="">Shipping Information</span>
               <p className="title-info-products-description">
                 <ul>
@@ -37,7 +37,7 @@ function Products() {
                 </ul>
               </p>
             </div>
-            <div className="p-3 info-products-description">
+            <div className="p-3 mb-3 info-products-description">
               <span className="">Features</span>
               <p className="title-info-products-description">
                 <ul>
@@ -52,6 +52,7 @@ function Products() {
           </div>
         </div>
       </Body>
+      <div className="pb-5 pb-lg-0"></div>
       <Footer />
     </div>
   );
