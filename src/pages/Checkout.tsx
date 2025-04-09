@@ -1,6 +1,7 @@
 import Body from "../common/Body";
 import Footer from "../common/Footer";
 import Navbar from "../common/Navbar";
+import Button from "../components/Button/Button";
 import CreditCard from "../components/CreditCard/CreditCard";
 import InputPersonalized from "../components/Input/Input";
 
@@ -48,6 +49,9 @@ function Checkout() {
                   </div>
                   <div className="col-12">
                     <InputPersonalized type="text" placeholder="STREET" />
+                  </div>
+                  <div className="col-12 d-flex justify-content-center g-0">
+                  <Button />
                   </div>
                 </div>
               </div>
