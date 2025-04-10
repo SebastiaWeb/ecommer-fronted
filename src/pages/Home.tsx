@@ -13,9 +13,9 @@ function Home() {
             <h1 className="text-left">PRODUCTS</h1>
           </div>
           <div className="row justify-content-center pt-4 pb-5 mb-5">
-            <CardProduct name="Mouse inalambrico" price={49.99} url="https://pngimg.com/d/computer_mouse_PNG7688.png"/>
-            <CardProduct name="Teclado" price={30.99} url="https://www.pngplay.com/wp-content/uploads/9/Keyboard-PNG-HD-Quality.png"/>
-            <CardProduct name="PC GAMER" price={999.99} url="https://shopinfo.vteximg.com.br/arquivos/ids/1611779-1000-1000/1.png?v=638573331208230000"/>
+            <CardProduct id="1" name="Mouse inalambrico" price={49.99} url="https://pngimg.com/d/computer_mouse_PNG7688.png"/>
+            <CardProduct id="2" name="Teclado" price={30.99} url="https://www.pngplay.com/wp-content/uploads/9/Keyboard-PNG-HD-Quality.png"/>
+            <CardProduct id="3" name="PC GAMER" price={999.99} url="https://shopinfo.vteximg.com.br/arquivos/ids/1611779-1000-1000/1.png?v=638573331208230000"/>
           </div>
         </div>
       </Body>

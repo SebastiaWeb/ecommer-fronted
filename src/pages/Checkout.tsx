@@ -1,11 +1,20 @@
+import { useDispatch } from "react-redux";
 import Body from "../common/Body";
 import Footer from "../common/Footer";
 import Navbar from "../common/Navbar";
 import Button from "../components/Button/Button";
 import CreditCard from "../components/CreditCard/CreditCard";
 import InputPersonalized from "../components/Input/Input";
+import { setCardNumber, setExpirationDate, setCvv, setCardHolder, selectCardNumber } from '../components/Input/slice/creditCardSlice';
 
 function Checkout() {
+  const dispatch = useDispatch();
+  const handleCardNumber = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const input = e.target as HTMLInputElement;
+    console.log("Valor ingresado:", input.value);
+    dispatch(setCardNumber(input.value));
+  };
+  
   return (
     <div>
       <Navbar />
@@ -18,17 +27,17 @@ function Checkout() {
             <div className="col-12 col-lg-6 mt-md-0">
               <div className="col-12 col-lg-12 mt-5 mt-md-0">
                 <div className="containerForm row g-0 justify-content-center">
-                  <InputPersonalized type="number" placeholder="Card Number" />
+                  <InputPersonalized type="number" placeholder="Card Number" onChange={() => {}} formato="tarjeta" keyUp={handleCardNumber}/>
                   <div className="col-12 row p-0 g-0">
                     <div className="col-6 p-0 pe-1">
-                      <InputPersonalized type="text" placeholder="Expired Date" />
+                      <InputPersonalized type="text" placeholder="Expired Date" onChange={() => {}} formato="mm/yy" maxLength={5} keyUp={handleCardNumber}/>
                     </div>
                     <div className="col-6 p-0 ps-1">
-                      <InputPersonalized type="number" placeholder="CVV" />
+                      <InputPersonalized type="number" placeholder="CVV" onChange={() => {}} maxLength={3} formato="number" keyUp={handleCardNumber}/>
                     </div>
                   </div>
                   <div className="col-12">
-                    <InputPersonalized type="text" placeholder="Name" />
+                    <InputPersonalized type="text" placeholder="Name" onChange={() => {}} formato="text" keyUp={handleCardNumber}/>
                   </div>
                 </div>
               </div>
@@ -37,18 +46,18 @@ function Checkout() {
 
               <div className="col-12 col-lg-12 mt-3 mt-md-3 mt-lg-3 mb-5 mb-lg-0">
                 <div className="containerForm row g-0 justify-content-center">
-                  <InputPersonalized type="text" placeholder="NAME" />
+                  <InputPersonalized type="text" placeholder="NAME" onChange={() => {}} formato="text"/>
                   <div className="col-12">
-                    <InputPersonalized type="text" placeholder="LAST NAME" />
+                    <InputPersonalized type="text" placeholder="LAST NAME" onChange={() => {}} formato="text"/>
                   </div>
                   <div className="col-12">
-                    <InputPersonalized type="email" placeholder="Email" />
+                    <InputPersonalized type="email" placeholder="Email" onChange={() => {}} formato="email"/>
                   </div>
                   <div className="col-12">
-                    <InputPersonalized type="text" placeholder="PHONE" />
+                    <InputPersonalized type="text" placeholder="PHONE" onChange={() => {}} formato="phone"/>
                   </div>
                   <div className="col-12">
-                    <InputPersonalized type="text" placeholder="STREET" />
+                    <InputPersonalized type="text" placeholder="STREET" onChange={() => {}} formato="text"/>
                   </div>
                   <div className="col-12 d-flex justify-content-center g-0">
                   <Button />

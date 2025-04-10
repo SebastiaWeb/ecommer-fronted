@@ -2,8 +2,11 @@ import './index.css';
 import chip from '../../assets/chip.png';
 import visa from '../../assets/visa.svg';
 import mastercard from '../../assets/mastercard.png';
+import { selectCardNumber } from '../Input/slice/creditCardSlice';
+import { useSelector } from 'react-redux';
 
 function CreditCard(){
+    const cardNumber = useSelector(selectCardNumber);
 
     return(
         <div className="creditCardContainer row m-0">
@@ -14,7 +17,7 @@ function CreditCard(){
                 <img src={chip} alt="" />
             </div>
             <div className="col-12">
-                <h1 className="cardNumber">**** **** **** 1234</h1>
+                <h1 className="cardNumber">{cardNumber}</h1>
             </div>
             <div className="col-12 d-flex justify-content-evenly">
                 <div className="col-8"><p className='p-0 m-0'>Name</p> <p>SEBASTIAN CARMONA</p></div>

@@ -2,8 +2,13 @@ import Body from "../common/Body";
 import Footer from "../common/Footer";
 import Navbar from "../common/Navbar";
 import Button from "../components/Button/Button";
+import { useLocation } from "react-router-dom";
 
 function Products() {
+  const location = useLocation();
+  const { id } = location.state || {}; // Get the id from the state passed through the router 
+  console.log(id); // Log the id to the console for debugging
+  
   return (
     <div className="d-flex flex-column min-vh-100">
       <Navbar />
@@ -30,16 +35,16 @@ function Products() {
             </div>
             <div className="p-3 mb-3 info-products-description">
               <span className="">Shipping Information</span>
-              <p className="title-info-products-description">
+              <div className="title-info-products-description">
                 <ul>
                   <li>Standard shipping: <span className="info-color-black">3-5 business days</span></li>
                   <li>Express shipping options available at checkout</li>
                 </ul>
-              </p>
+              </div>
             </div>
             <div className="p-3 mb-3 info-products-description">
               <span className="">Features</span>
-              <p className="title-info-products-description">
+              <div className="title-info-products-description">
                 <ul>
                   <li>Distressed detailing for a rugged look</li>
                   <li>Button-up front closure with engraved metal buttons</li>
@@ -47,7 +52,7 @@ function Products() {
                   <li>Adjustable buttoned cuffs for a personalized fit</li>
                   <li>Back waist tabs for customizable styling</li>
                 </ul>
-              </p>
+              </div>
             </div>
           </div>
         </div>
