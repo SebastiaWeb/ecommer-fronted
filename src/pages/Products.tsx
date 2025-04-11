@@ -3,23 +3,41 @@ import Footer from "../common/Footer";
 import Navbar from "../common/Navbar";
 import Button from "../components/Button/Button";
 import { useLocation } from "react-router-dom";
+import ImageGallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css";
 
 function Products() {
   const location = useLocation();
   const { id } = location.state || {}; // Get the id from the state passed through the router 
   console.log(id); // Log the id to the console for debugging
-  
+
+  const images = [
+    {
+      original: "https://picsum.photos/id/1018/1000/600/",
+      thumbnail: "https://picsum.photos/id/1018/250/150/",
+    },
+    {
+      original: "https://picsum.photos/id/1015/1000/600/",
+      thumbnail: "https://picsum.photos/id/1015/250/150/",
+    },
+    {
+      original: "https://picsum.photos/id/1019/1000/600/",
+      thumbnail: "https://picsum.photos/id/1019/250/150/",
+    },
+  ];
+
   return (
     <div className="d-flex flex-column min-vh-100">
       <Navbar />
       <Body>
         <div className="container row m-0 mb-5 pb-5 mb-lg-0 pb-lg-0">
           <div className="d-flex col-12 col-md-12 col-lg-6 justify-content-center align-items-center">
-            <img
+            {/* <img
               src="https://placehold.co/500x400"
               alt="gallery"
               className="img-fluid"
-            />
+            /> */}
+            <ImageGallery items={images} thumbnailPosition="left" showPlayButton={false} showBullets={false} useBrowserFullscreen={false} useTranslate3D={false} />
           </div>
           <div className="row col-md-12 col-lg-6">
             <div className="row justify-content-between">
