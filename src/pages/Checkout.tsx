@@ -11,8 +11,21 @@ function Checkout() {
   const dispatch = useDispatch();
   const handleCardNumber = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const input = e.target as HTMLInputElement;
-    console.log("Valor ingresado:", input.value);
     dispatch(setCardNumber(input.value));
+  };
+
+  const handleExpireData = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const input = e.target as HTMLInputElement;
+    dispatch(setExpirationDate(input.value));
+  };
+
+  const handleCvv = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const input = e.target as HTMLInputElement;
+    dispatch(setCvv(input.value));
+  };
+  const handleCardHolder = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const input = e.target as HTMLInputElement;
+    dispatch(setCardHolder(input.value));
   };
   
   return (
@@ -20,24 +33,24 @@ function Checkout() {
       <Navbar />
       <Body>
         <div className="d-flex justify-content-center align-items-center mb-5">
-          <div className="container row container-generic row p-md-5 justify-content-center align-items-center pt-4 mb-5">
-            <div className="row justify-content-center col-12 col-lg-6 g-0 mb-md-3 mb-md-0" >
+          <div className="container row container-generic row p-md-5 justify-content-center align-items-start pt-4 mb-5">
+            <div className="row justify-content-center col-12 col-lg-4 g-0 mb-md-3 mb-md-0" >
               <CreditCard />
             </div>
             <div className="col-12 col-lg-6 mt-md-0">
               <div className="col-12 col-lg-12 mt-5 mt-md-0">
                 <div className="containerForm row g-0 justify-content-center">
-                  <InputPersonalized type="number" placeholder="Card Number" onChange={() => {}} formato="tarjeta" keyUp={handleCardNumber}/>
+                  <InputPersonalized type="number" placeholder="Card Number" onChange={() => {}} formato="tarjeta" maxLength={19} keyUp={handleCardNumber}/>
                   <div className="col-12 row p-0 g-0">
                     <div className="col-6 p-0 pe-1">
-                      <InputPersonalized type="text" placeholder="Expired Date" onChange={() => {}} formato="mm/yy" maxLength={5} keyUp={handleCardNumber}/>
+                      <InputPersonalized type="text" placeholder="Expired Date" onChange={() => {}} formato="mm/yy" maxLength={5} keyUp={handleExpireData}/>
                     </div>
                     <div className="col-6 p-0 ps-1">
-                      <InputPersonalized type="number" placeholder="CVV" onChange={() => {}} maxLength={3} formato="number" keyUp={handleCardNumber}/>
+                      <InputPersonalized type="number" placeholder="CVV" onChange={() => {}} maxLength={3} formato="number" keyUp={handleCvv}/>
                     </div>
                   </div>
                   <div className="col-12">
-                    <InputPersonalized type="text" placeholder="Name" onChange={() => {}} formato="text" keyUp={handleCardNumber}/>
+                    <InputPersonalized type="text" placeholder="Name" onChange={() => {}} formato="text" keyUp={handleCardHolder}/>
                   </div>
                 </div>
               </div>
@@ -54,7 +67,7 @@ function Checkout() {
                     <InputPersonalized type="email" placeholder="Email" onChange={() => {}} formato="email"/>
                   </div>
                   <div className="col-12">
-                    <InputPersonalized type="text" placeholder="PHONE" onChange={() => {}} formato="phone"/>
+                    <InputPersonalized type="text" placeholder="PHONE" maxLength={12} onChange={() => {}} formato="text"/>
                   </div>
                   <div className="col-12">
                     <InputPersonalized type="text" placeholder="STREET" onChange={() => {}} formato="text"/>

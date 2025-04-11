@@ -31,11 +31,17 @@ function InputFormateado({
         }
 
         // Aplicar formato según el tipo
-        if (formato === 'mm/yy') {
+        if (formato === 'mm/yy' && inputVal.length > 0) {
+            inputVal = e.target.value.replace(/\D/g, ''); // Elimina todo lo que no sea dígito
+
             if (inputVal.length > 4) inputVal = inputVal.substring(0, 4);
             if (inputVal.length > 2) {
                 inputVal = inputVal.substring(0, 2) + '/' + inputVal.substring(2);
             }
+        }else if(formato === 'tarjeta' && inputVal.length > 0) {
+            // Formato de tarjeta de crédito
+            inputVal = inputVal.replace(/(\d{4})(?=\d)/g, '$1 '); // Agrega un espacio cada 4 dígitos
+            if (inputVal.length > 19) inputVal = inputVal.substring(0, 19); // Limitar a 19 caracteres (16 dígitos + 3 espacios)
         } else if (separadorPosicion.length > 0) {
             // Formato con separadores en posiciones específicas
             let valFormateado = '';
@@ -44,21 +50,23 @@ function InputFormateado({
                 valFormateado += inputVal[i];
             }
             inputVal = valFormateado.substring(0, maxLength);
-        } else if (formato === 'email') {
+        } else if (formato === 'email' && inputVal.length > 0) {
             const regex = /^[^a-zA-Z0-9@-_]+$/; // Expresión regular para validar el formato de correo electrónico
             if (regex.test(inputVal)) {
                 alert('Formato de correo electrónico no válido');
                 inputVal = ''; // Reiniciar el valor si no es válido
                 inputVal = inputVal.replace(/[^a-zA-Z0-9@._-]/g, ''); // Elimina caracteres no válidos
             }
-        } else if (formato === 'phone') {
-            const regex = /^[0-9]+$/; // Expresión regular para validar el formato de teléfono
+
+        } else if (formato === 'phone' && inputVal.length > 0) {
+            const regex = /^[0-9 ]/g; // Expresión regular para validar el formato de teléfono
             if (!regex.test(inputVal)) {
                 alert('Formato de teléfono no válido');
                 inputVal = ''; // Reiniciar el valor si no es válido
-                inputVal = inputVal.replace(/[^0-9]/g, ''); // Elimina caracteres no válidos
+                inputVal = inputVal.replace(/[^0-9 ]/g, ''); // Elimina caracteres no válidos
             }
-        } else if (formato === 'street') {
+
+        } else if (formato === 'street' && inputVal.length > 0) {
             const regex = /^[a-zA-Z0-9 ]+$/; // Expresión regular para validar el formato de dirección
             if (!regex.test(inputVal)) {
                 alert('Formato de dirección no válido');
@@ -67,17 +75,17 @@ function InputFormateado({
             }
         }
         else if (formato === 'text') {
-            const regex = /^[a-zA-Z ]+$/; // Expresión regular para validar el formato de texto
-            if (!regex.test(inputVal)) {
+            const regex = /^[a-zA-Z0-9 ]/g; // Expresión regular para validar el formato de texto
+            if (!regex.test(inputVal) && inputVal.length > 0) {
                 alert('Formato de texto no válido');
                 inputVal = ''; // Reiniciar el valor si no es válido
-                inputVal = inputVal.replace(/[^a-zA-Z ]/g, ''); // Elimina caracteres no válidos
+                inputVal = inputVal.replace(/[^a-zA-Z0-9 ]/g, ''); // Elimina caracteres no válidos
             }
         }
 
-
         setValor(inputVal);
         onChange(inputVal);
+
     };
 
     return (
@@ -85,7 +93,7 @@ function InputFormateado({
             <input
                 type="text"
                 placeholder={placeholder}
-                value={value}
+                value={value || valor}
                 onChange={manejarCambio}
                 className='inputPersonzalized'
                 onKeyUp={keyUp}

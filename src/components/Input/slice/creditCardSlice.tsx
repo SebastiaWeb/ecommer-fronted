@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "@reduxjs/toolkit/query";
 
 const initialState = {
     cardNumber: "",
@@ -20,7 +19,11 @@ export const creditCardSlice = createSlice({
             state.cardHolder = action.payload;
         },
         setExpirationDate: (state, action: PayloadAction<string>) => {
-            state.expirationDate = action.payload;
+            let inputVal = action.payload.replace(/\D/g, '');
+            if (inputVal.length > 2) {
+                inputVal = inputVal.substring(0, 2) + '/' + inputVal.substring(2);
+            }
+            state.expirationDate = inputVal.substring(0, 5); // Limitar a 5 caracteres (MM/YY)
         },
         setCvv: (state, action: PayloadAction<string>) => {
             state.cvv = action.payload;
