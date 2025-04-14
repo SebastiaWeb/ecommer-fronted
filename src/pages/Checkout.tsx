@@ -17,6 +17,7 @@ import {
   setEmail,
   setPhone,
   setStreet,
+  setInstallments,
   selectCardNumber,
   selectCardHolder,
   selectExpirationDate,
@@ -25,7 +26,8 @@ import {
   selectLastName,
   selectEmail,
   selectPhone,
-  selectStreet
+  selectStreet,
+  selectInstallments
 } from '../components/Input/slice/creditCardSlice';
 import { apiService } from '../api';
 
@@ -79,6 +81,11 @@ function Checkout() {
     dispatch(setStreet(input.value));
   };
 
+  const handleInstallments = (e: React.ChangeEvent) => {
+    const input = e.target as HTMLInputElement;
+    dispatch(setStreet(input.value));
+  };
+
   // Selectores para obtener los datos del estado
   const cardNumber = useSelector(selectCardNumber);
   const cardHolder = useSelector(selectCardHolder);
@@ -89,6 +96,7 @@ function Checkout() {
   const email = useSelector(selectEmail);
   const phone = useSelector(selectPhone);
   const street = useSelector(selectStreet);
+  const installments = useSelector(selectInstallments);
 
   const handleBuyClick = async () => {
     // Validaciones previas (las que ya teníamos)
@@ -119,6 +127,7 @@ function Checkout() {
         cardHolder,
         expirationDate,
         cvv,
+        installments,
         email, // ID de orden único
         orderId: `ORD-${Date.now()}`,
       };
@@ -211,7 +220,7 @@ function Checkout() {
                     keyUp={handleCardNumber}
                   />
                   <div className="col-12 row p-0 g-0">
-                    <div className="col-6 p-0 pe-1">
+                    <div className="col-3 p-0 pe-1">
                       <InputPersonalized
                         type="text"
                         placeholder="Expired Date"
@@ -221,7 +230,7 @@ function Checkout() {
                         keyUp={handleExpireData}
                       />
                     </div>
-                    <div className="col-6 p-0 ps-1">
+                    <div className="col-3 p-0 ps-1">
                       <InputPersonalized
                         type="number"
                         placeholder="CVV"
@@ -231,6 +240,15 @@ function Checkout() {
                         keyUp={handleCvv}
                       />
                     </div>
+                    <div className="row col-6 p-0 ps-1">
+                      <label htmlFor="installments" className="col-4 label_installments text-end d-flex aling-items-center">Cuotas:</label>
+                        <select name="installments" id="installments" className="col-8 installments" onChange={handleInstallments}>
+                          <option value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                        </select>
+                      </div>
                   </div>
                   <div className="col-12">
                     <InputPersonalized

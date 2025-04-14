@@ -11,6 +11,7 @@ interface CheckoutState {
     email: string;
     phone: string;
     street: string;
+    installments: number;
 }
 
 const initialState: CheckoutState = {
@@ -22,7 +23,8 @@ const initialState: CheckoutState = {
     lastName: "",
     email: "",
     phone: "",
-    street: ""
+    street: "",
+    installments: 0
 };
 
 export const creditCardSlice = createSlice({
@@ -60,6 +62,9 @@ export const creditCardSlice = createSlice({
         setStreet: (state, action: PayloadAction<string>) => {
             state.street = action.payload;
         },
+        setInstallments: (state, action: PayloadAction<string>) => {
+            state.street = action.payload;
+        },
         // Optional: A reset action to clear all fields
         resetCheckoutForm: () => initialState
     }
@@ -76,7 +81,8 @@ export const {
     setEmail,
     setPhone,
     setStreet,
-    resetCheckoutForm
+    resetCheckoutForm,
+    setInstallments
 } = creditCardSlice.actions;
 
 // Selectors
@@ -89,5 +95,6 @@ export const selectLastName = (state: any) => state.creditCardSlice.lastName;
 export const selectEmail = (state: any) => state.creditCardSlice.email;
 export const selectPhone = (state: any) => state.creditCardSlice.phone;
 export const selectStreet = (state: any) => state.creditCardSlice.street;
+export const selectInstallments = (state: any) => state.creditCardSlice.installments;
 
 export const creditCardReducer = creditCardSlice.reducer;

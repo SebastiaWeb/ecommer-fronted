@@ -84,3 +84,15 @@ html {
   border-width: 1px; /* arriba, derecha, abajo, izquierda */
   border-style: dashed;
 }
+
+.installments{
+  height: 30px;
+  background-color: white;
+  border:none;
+  border: solid 1px black;
+  border-radius: 8px;
+}
+
+.label_installments{
+  font-size: 12px;
+}
