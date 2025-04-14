@@ -186,6 +186,28 @@ const processPayment = async (paymentData: {
     }
 };
 
+// Función para obtener todos los productos
+const getAllProducts = async (): Promise<Product[]> => {
+    try {
+        const response = await api.get('/products');
+        return response.data;
+    } catch (error) {
+        console.error('Error en getAllProducts:', error.response?.data || error.message);
+        throw error;
+    }
+};
+
+// Función para obtener un producto por ID
+const getProductById = async (productId: string): Promise<Product> => {
+    try {
+        const response = await api.get(`/products/${productId}`);
+        return response.data;
+    } catch (error) {
+        console.error('Error en getProductById:', error.response?.data || error.message);
+        throw error;
+    }
+};
+
 // Generador de UUID
 const generateUUID = () => {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
@@ -199,6 +221,8 @@ export const apiService = {
     createPerson,
     processPayment,
     getCurrentToken: () => authToken,
+    getProductById,
+    getAllProducts,
     clearToken: () => {
         authToken = null;
         localStorage.removeItem(TOKEN_KEY);
