@@ -4,9 +4,16 @@ import Home from './pages/Home'
 import Products from './pages/Products'
 import Checkout from './pages/Checkout'
 import Summary from './pages/Summary'
+import { useEffect } from 'react'
+import apiService from './api'
 
 function App() {
 
+  useEffect(() => {
+    // Generar token al cargar la aplicación
+    apiService.initializeAuthToken()
+      .catch(error => console.error('Error inicializando token:', error));
+  }, []);
 
   return (
     <BrowserRouter>
