@@ -24,6 +24,7 @@ interface Product {
   listeners?: boolean;
   reactable?: string;
   updateable?: string;
+  imageUrl:string;
 }
 
 function Products() {
@@ -59,6 +60,12 @@ function Products() {
           productImages.push({
             original: productData.language,
             thumbnail: productData.language
+          });
+        }
+        if (productData.imageUrl) {
+          productImages.push({
+            original: productData.imageUrl,
+            thumbnail: productData.imageUrl
           });
         }
         // Si no hay imágenes, usar placeholder

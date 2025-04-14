@@ -14,6 +14,7 @@ interface Product {
   category?: string;
   longplot?: string; // URL de la imagen
   language?: string; // URL alternativa de la imagen
+  imageUrl:string;
 }
 
 function Home() {
@@ -42,8 +43,10 @@ function Home() {
   }, []);
 
   // Función para obtener la URL de la imagen (usa longplot o language)
+
   const getImageUrl = (product: Product) => {
-    return product.longplot || product.language || "https://via.placeholder.com/300";
+    console.log(product)
+    return product.longplot || product.language || product.imageUrl || "https://via.placeholder.com/300";
   };
 
   if (loading) {
