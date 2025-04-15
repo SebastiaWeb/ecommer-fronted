@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { Product } from './common/Product';
 
-const API_BASE_URL = 'http://localhost:3000';
-const TOKEN_KEY = 'auth_token';
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const TOKEN_KEY = import.meta.env.VITE_TOKEN_KEY;
 
 // Credenciales de administrador
 const ADMIN_CREDENTIALS = {
