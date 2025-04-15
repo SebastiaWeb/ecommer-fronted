@@ -7,25 +7,7 @@ import { useLocation } from "react-router-dom";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import apiService from "../api";
-// import { apiService } from "../services/apiService";
-
-interface Product {
-  id: string;
-  name: string;
-  price: number;
-  description?: string;
-  category?: string;
-  longplot?: string; // URL de la imagen principal
-  language?: string; // URL alternativa de la imagen
-  statistics?: boolean;
-  cyzstddef?: string;
-  spherelet?: string;
-  tools?: string;
-  listeners?: boolean;
-  reactable?: string;
-  updateable?: string;
-  imageUrl:string;
-}
+import { Product } from "../common/Product";
 
 function Products() {
   const location = useLocation();
@@ -49,7 +31,7 @@ function Products() {
         setProduct(productData);
 
         // Preparar imágenes para el ImageGallery
-        const productImages = [];
+        const productImages:any = [];
         if (productData.longplot) {
           productImages.push({
             original: productData.longplot,

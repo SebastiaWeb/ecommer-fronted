@@ -2,7 +2,7 @@ import './index.css';
 import chip from '../../assets/chip.png';
 import visa from '../../assets/visa.svg';
 import mastercard from '../../assets/mastercard.svg';
-import { selectCardHolder, selectCardNumber, selectCvv, selectExpirationDate } from '../Input/slice/creditCardSlice';
+import { selectCardHolder, selectCardNumber, selectExpirationDate } from '../Input/slice/creditCardSlice';
 import { useSelector } from 'react-redux';
 
 function CreditCard(){

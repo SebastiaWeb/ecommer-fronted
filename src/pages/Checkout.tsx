@@ -83,7 +83,7 @@ function Checkout() {
 
   const handleInstallments = (e: React.ChangeEvent) => {
     const input = e.target as HTMLInputElement;
-    dispatch(setStreet(input.value));
+    dispatch(setInstallments(input.value));
   };
 
   // Selectores para obtener los datos del estado

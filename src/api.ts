@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Product } from './common/Product';
 
 const API_BASE_URL = 'http://localhost:3000';
 const TOKEN_KEY = 'auth_token';
@@ -47,9 +48,7 @@ export const initializeAuthToken = async (): Promise<void | null> => {
             }
 
             authToken = response.data.token;
-            localStorage.setItem(TOKEN_KEY, authToken);
-            console.log('Token obtenido:', authToken);
-            console.log('Token obtenido y almacenado correctamente');
+            localStorage.setItem(TOKEN_KEY, authToken ?? '');
         } catch (error) {
             // console.error('Error al generar token:', error);
             // throw new Error('No se pudo obtener el token de autenticación');
@@ -65,7 +64,7 @@ export const initializeAuthToken = async (): Promise<void | null> => {
 
             authToken = response.data.access_token;
             console.log(response.data)
-            localStorage.setItem(TOKEN_KEY, authToken);
+            localStorage.setItem(TOKEN_KEY, authToken ?? '');
             console.log('Token obtenido:', authToken);
             console.log('Token obtenido y almacenado correctamente');
 
@@ -124,7 +123,7 @@ const createPerson = async (personData: {
             userId: generateUUID()
         });
         return response.data;
-    } catch (error) {
+    } catch (error: any) {
         console.error('Error en createPerson:', error.response?.data || error.message);
         throw error;
     }
@@ -173,7 +172,7 @@ const processPayment = async (paymentData: {
         });
 
         return response.data;
-    } catch (error) {
+    } catch (error: any) {
         console.error('Error en processPayment:', error);
 
         if (error.response?.status === 401) {
@@ -191,7 +190,7 @@ const getAllProducts = async (): Promise<Product[]> => {
     try {
         const response = await api.get('/products');
         return response.data;
-    } catch (error) {
+    } catch (error: any) {
         console.error('Error en getAllProducts:', error.response?.data || error.message);
         throw error;
     }
@@ -202,7 +201,7 @@ const getProductById = async (productId: string): Promise<Product> => {
     try {
         const response = await api.get(`/products/${productId}`);
         return response.data;
-    } catch (error) {
+    } catch (error: any) {
         console.error('Error en getProductById:', error.response?.data || error.message);
         throw error;
     }
