@@ -1,14 +1,12 @@
 import axios from 'axios';
 import { Product } from './common/Product';
+import { API_BASE_URL, PASSWORD, TOKEN_KEY, USERNAME } from './Config';
 
-
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-const TOKEN_KEY = import.meta.env.VITE_TOKEN_KEY;
-
+console.log(API_BASE_URL, TOKEN_KEY, USERNAME, PASSWORD)
 // Credenciales de administrador
 const ADMIN_CREDENTIALS = {
-    username: 'admin',
-    password: 'secret123'
+    username: USERNAME,
+    password: PASSWORD
 };
 
 // Variables para controlar el estado del token
