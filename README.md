@@ -2,8 +2,11 @@
 
 # Configuracion de variables de entorno.
 API_BASE_URL = 
-
 TOKEN_KEY = 
+
+# Credenciales de administrador obtener el token de autorizacion
+VITE_USERNAME = 
+VITE_PASSWORD = 
 
 # Ingresar productos desde el swagger.
 
