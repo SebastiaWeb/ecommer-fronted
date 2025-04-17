@@ -10,4 +10,4 @@ VITE_PASSWORD =
 
 # Ingresar productos desde el swagger.
 
-URL AWS: ec2-13-59-117-85.us-east-2.compute.amazonaws.com
+URL AWS: http://ec2-18-220-24-207.us-east-2.compute.amazonaws.com
